@@ -15,5 +15,11 @@
 /log/*.log
 /tmp
 
+<<<<<<< HEAD
 # Ignore application configuration
 /config/application.yml
+=======
+# Ignore idea files
+*.xml
+*.iml
+>>>>>>> 81be3d9eeb7c5bfbd5f3bdfa1e350d2f5efe1e21
