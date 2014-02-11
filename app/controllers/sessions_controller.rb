@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     @user = User.find_or_create_from_auth_hash(auth_hash)
     if auth_hash["uid"]
       if @user 
-        self.current_user = @user
+        session[:user_id] = @user.id
         redirect_to root_path, notice: "#{@user.username} is now signed in"
       else
         redirect_to root_path, notice: "Failed to save user"
