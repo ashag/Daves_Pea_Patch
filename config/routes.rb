@@ -4,7 +4,7 @@ PeaPatch::Application.routes.draw do
   get  '/auth/failure',                    to: 'sessions#failure'
   get  '/auth/:provider/callback',         to: 'sessions#create'
   post '/auth/:provider/callback',         to: 'sessions#create'
-  get 'sign_out'                           to: 'sessions#destroy', as: :sign_out
+  get 'sign_out',                          to: 'sessions#destroy', as: :sign_out
 
 
 end
