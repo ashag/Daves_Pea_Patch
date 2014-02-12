@@ -29,6 +29,7 @@ describe ToolController do
       end
     end
 
+<<<<<<< HEAD
     context 'with invalid attributes' do 
       let(:invalid_tool) {name: '', qty: 1}
 
@@ -56,4 +57,13 @@ describe ToolController do
       expect { delete :destroy, tool: deleted_tool }.to change(Tool, :count).by(tool.qty)
     end
   end
+=======
+  end
+
+
+
+
+
+
+>>>>>>> twitter
 end
