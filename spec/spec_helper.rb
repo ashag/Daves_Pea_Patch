@@ -13,6 +13,24 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
+  config.before(:suite) do 
+
+    OmniAuth.config.test_mode = true
+
+     omni_hash = OmniAuth::AuthHash.new({
+      :provider => 'twitter', 
+      :uid => '123545', 
+      info: {
+        name: 'Davy',
+        email: "a@b.com", 
+        nickname: "David"
+      }})
+
+    OmniAuth.config.add_mock(:twitter, omni_hash)
+  end
+
+
+  config.include FactoryGirl::Syntax::Methods
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

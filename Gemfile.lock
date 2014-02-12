@@ -256,6 +256,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 1.2)
   jquery-rails
+  omniauth
   omniauth-twitter
   rails (= 4.0.2)
   resque
