@@ -9,12 +9,22 @@ FactoryGirl.define do
     admin false
   end
 
+  
   factory :user_admin, class: User do
     id 2
     username 'Dave'
     uid '456789'
     provider 'twitter'
     admin true
+  end
+
+  factory :user_no_email, class: User do
+    id 3
+    username 'Asha'
+    email 
+    uid '123456'
+    provider 'twitter'
+    admin false
   end
 
   factory :tool, class: Tool do

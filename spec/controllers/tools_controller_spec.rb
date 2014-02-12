@@ -1,18 +1,34 @@
 require 'spec_helper'
 
-describe ToolController do 
+describe ToolsController do 
 
   describe 'GET "new" ' do 
     it 'is successful' do 
       get :new
       expect(user).to be_successful
     end
+
+    context 'user email not on user profile, clicks link to create new tool' do
+      before(:each) do
+        @user = Factory(:user_no_email)
+      end
+
+      it 'redirects user to profile' do 
+        get :new
+        expect(response).to redirect_to(user_show_path(@user.id))
+      end
+
+      it 'sets flash notice' do 
+        get :new
+        expect(flash[:notice]).to include 'We need your email to give you access to tools'
+      end
+    end
   end
 
   describe 'POST "create" ' do 
 
     context 'with valid attributes' do 
-      let(:valid_tool) {name: 'pruners', qty: 1}
+      let(:valid_tool) { {name: 'pruners', qty: 1} }
 
       it 'changes tool count by 1' do 
         expect { post :create, tool: valid_tool }.to change(Tool, :count).by(1)
@@ -29,9 +45,8 @@ describe ToolController do
       end
     end
 
-<<<<<<< HEAD
     context 'with invalid attributes' do 
-      let(:invalid_tool) {name: '', qty: 1}
+      let(:invalid_tool) { {name: '', qty: 1} }
 
       it 'renders new template' do 
         post :create, tool: invalid_tool
@@ -57,13 +72,4 @@ describe ToolController do
       expect { delete :destroy, tool: deleted_tool }.to change(Tool, :count).by(tool.qty)
     end
   end
-=======
-  end
-
-
-
-
-
-
->>>>>>> twitter
 end
