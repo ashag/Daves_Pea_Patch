@@ -4,11 +4,39 @@
   <title>PeaPatch</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap-tab.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="top-bar"><%= image_tag "peashooter.png" %> <strong>Dave's Pea Patch</strong></div>
 
-<%= yield %>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#forecast" data-toggle="tab">Forecast</a></li>
+    <li><a href="#calendar" data-toggle="tab">Calendar</a></li>
+    <li><a href="#news" data-toggle="tab">News</a></li>
+    <li><a href="#tools" data-toggle="tab">Tools</a></li>
+</ul>
+
+<!-- Tab Content -->
+<div class="tab-content">
+    <div class="tab-pane active" id="forecast">
+        <h1>Weather</h1>
+        <p>rain rain rain rain rain</p>
+    </div>
+    <div class="tab-pane" id="calendar">
+        <h1>Calendar</h1>
+        <p>event event event event</p>
+    </div>
+    <div class="tab-pane" id="news">
+        <h1>News</h1>
+        <p>NEW ORGANIC HEIRLOOM SEEDS</p>
+    </div>
+    <div class="tab-pane" id="tools">
+        <h1>Tools</h1>
+        <p>hoe hoe hoe hoe hoe hoe</p>
+    </div>
+</div>
 
 </body>
 </html>

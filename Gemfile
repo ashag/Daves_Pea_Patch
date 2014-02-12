@@ -16,6 +16,7 @@ gem 'rubocop'
 gem 'brakeman'
 gem 'omniauth-twitter'
 gem 'omniauth'
+gem 'wunderground'
 
 group :doc do
   gem 'sdoc', require: false
