@@ -8,8 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <div class="top-bar"><%= image_tag "peashooter.png" %> <strong>Dave's Pea Patch</strong></div>
 
+<%= yield %>
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
     <li class="active"><a href="#forecast" data-toggle="tab">Forecast</a></li>
@@ -22,7 +24,7 @@
 <div class="tab-content">
     <div class="tab-pane active" id="forecast">
         <h1>Weather</h1>
-        <p>rain rain rain rain rain</p>
+        <%= render partial: 'shared/forecast' %>
     </div>
     <div class="tab-pane" id="calendar">
         <h1>Calendar</h1>
@@ -37,6 +39,5 @@
         <p>hoe hoe hoe hoe hoe hoe</p>
     </div>
 </div>
-
 </body>
 </html>
