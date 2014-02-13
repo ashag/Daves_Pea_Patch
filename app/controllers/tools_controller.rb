@@ -5,6 +5,7 @@ class ToolsController < ApplicationController
   end  
 
   def new
+    # before_filter
     # if current_user.nil?
     #   redirect_to :somewhere
     # end

@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
 
-  validates :username, :uid, :provider, presence: true
-  has_many  :user_tools
-  has_many  :tools, through: :user_tools
+  validates             :username, :uid, :provider, presence: true
+  validates_format_of   :email, :with => /\w+@\w+\.\w+/i
+  has_many              :user_tools
+  has_many              :tools, through: :user_tools
 
   def self.find_or_create_from_omniauth(auth_hash)
     user = User.find_by(uid: auth_hash["uid"]) || User.create_from_omniauth(auth_hash)
