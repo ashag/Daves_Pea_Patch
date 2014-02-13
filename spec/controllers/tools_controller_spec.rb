@@ -3,19 +3,17 @@ require 'spec_helper'
 describe ToolsController do 
 
   describe 'GET "new" ' do 
-    it 'is successful' do 
-      get :new
-      expect(user).to be_successful
-    end
 
     context 'user email not on user profile, clicks link to create new tool' do
-      before(:each) do
-        @user = Factory(:user_no_email)
-      end
+      let(:user) { create(:user_no_email)}
 
-      it 'redirects user to profile' do 
+      before(:each) do 
+        session[:user_id] = user.id
+      end  
+
+      it 'redirects user to profile' do
         get :new
-        expect(response).to redirect_to(user_show_path(@user.id))
+        expect(response).to redirect_to(user_path(user.id))
       end
 
       it 'sets flash notice' do 
@@ -35,13 +33,13 @@ describe ToolsController do
       end
 
       it 'redirects to tool index page' do 
-        subject { post :create, tool: valid_tool }
-        expect(subject).to redirect_to :action => :index
+        post :create, tool: valid_tool 
+        expect(response).to redirect_to tools_path
       end
 
       it 'sets a flash message' do 
         post :create, tool: valid_tool
-        expect(flash[:notice]).to include "#{valid_tool.name} added to tool inventory"
+        expect(flash[:notice]).to include "added to tool shed"
       end
     end
 
@@ -61,15 +59,15 @@ describe ToolsController do
   end
 
   describe 'DELETE "destroy" ' do 
-    let(:deleted_tool) {create(:user)}
+    let(:tool) { create(:tool) }
 
-    it 'is successful' do 
-      delete :destroy, id: deleted_tool.id
-      expect(response).to be_successful
+    it 'redirects to tools index' do 
+      delete :destroy
+      expect(response).to redirect_to tools_path
     end
 
     it 'changes tool count' do 
-      expect { delete :destroy, tool: deleted_tool }.to change(Tool, :count).by(tool.qty)
+      expect { delete :destroy, tool: tool }.to change(Tool, :count).by(-1)
     end
   end
 end

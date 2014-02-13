@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
      redirect_to root_path
   end
   helper_method :current_user
+
+  def admin?
+    @current_user.admin == true
+  end
+  helper_method :admin 
 end

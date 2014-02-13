@@ -21,7 +21,7 @@ FactoryGirl.define do
   factory :user_no_email, class: User do
     id 3
     username 'Asha'
-    email 
+    email nil
     uid '123456'
     provider 'twitter'
     admin false
@@ -45,7 +45,6 @@ FactoryGirl.define do
 
   factory :tool2 do
     name "MyString"
-    qty "MyString"
-    integer "MyString"
+    qty 2
   end
 end
