@@ -14,7 +14,7 @@ class ToolsController < ApplicationController
       render :new
     else
       redirect_to user_path(current_user.id)
-      flash[:notice] = "We need your email to give you access to tools"
+      flash[:notice] = "Please add your email to gain access to tools"
     end
   end
 
@@ -31,6 +31,7 @@ class ToolsController < ApplicationController
   end
 
   def destroy
+    @tool = Tool.find(params[:id])
     @tool.destroy
     redirect_to tools_path
   end

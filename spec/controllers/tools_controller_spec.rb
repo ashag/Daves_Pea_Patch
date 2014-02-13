@@ -18,7 +18,7 @@ describe ToolsController do
 
       it 'sets flash notice' do 
         get :new
-        expect(flash[:notice]).to include 'We need your email to give you access to tools'
+        expect(flash[:notice]).to include 'Please add your email to gain access to tools'
       end
     end
   end
@@ -44,30 +44,29 @@ describe ToolsController do
     end
 
     context 'with invalid attributes' do 
-      let(:invalid_tool) { {name: '', qty: 1} }
 
       it 'renders new template' do 
-        post :create, tool: invalid_tool
+        post :create, tool: { name: nil}
         expect(response).to render_template :new
       end
 
       it 'sets a flash message' do 
-        post :create, tool: invalid_tool
+        post :create, tool: { name: nil}
         expect(flash[:notice]).to include 'Tool must have a name'
       end
     end
   end
 
   describe 'DELETE "destroy" ' do 
-    let(:tool) { create(:tool) }
+    let!(:delete_tool) { create(:tool) }
 
     it 'redirects to tools index' do 
-      delete :destroy
+      delete :destroy, id: delete_tool.id
       expect(response).to redirect_to tools_path
     end
 
     it 'changes tool count' do 
-      expect { delete :destroy, tool: tool }.to change(Tool, :count).by(-1)
+      expect { delete :destroy, id: delete_tool.id }.to change(Tool, :count).by(-1)
     end
   end
 end
