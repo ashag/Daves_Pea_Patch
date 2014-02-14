@@ -5,7 +5,7 @@ class UserTool < ActiveRecord::Base
   def return_notification
     email = current_user.email 
 
-    Pony.mail(to: email, from: "adaBugFree13@gmail.com", subject: "Return the #{tool.name}", body: self.body)
+    Pony.mail(to: email, from: "adaBugFree13@gmail.com", subject: "Return the #{self.name}", body: self.body)
   end
 
   def body 
