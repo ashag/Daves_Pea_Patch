@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   def new
-    article = Post.new
+    @article = Post.new
   end
 
   def create
     @article = Post.create(post_params)
-    #redirect home?
+    render :'posts/show'
   end
 
   def edit
@@ -16,7 +16,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @articles = Post.all
   end
 
   def destroy
