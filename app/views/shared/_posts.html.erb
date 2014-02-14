@@ -1,0 +1,19 @@
+<% if current_user && current_user.admin %>
+    <div class= 'post-form'>
+        <%= form_tag posts_path, method: :post %>
+        <%= label_tag :title %><br>
+        <%= text_field_tag :title %>
+        <%= label_tag :body %>:
+        <%= text_field_tag :body %>
+        <%= submit_tag 'Go' %>
+    </div>
+<% end %>
+<% articles = Post.all %>
+<% articles. each do |post| %>
+  <%= post.title %><br>
+    <% if current_user && current_user.admin %>
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+
+  <%= post.body %><br><br><br>
+<% end %>
