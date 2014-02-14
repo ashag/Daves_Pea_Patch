@@ -17,6 +17,8 @@ gem 'brakeman'
 gem 'omniauth-twitter'
 gem 'omniauth'
 gem 'wunderground'
+gem 'pony'
+gem 'resque'
 
 group :doc do
   gem 'sdoc', require: false
