@@ -4,8 +4,9 @@ PeaPatch::Application.routes.draw do
   get  '/auth/failure',                    to: 'sessions#failure'
   get  '/auth/:provider/callback',         to: 'sessions#create'
   post '/auth/:provider/callback',         to: 'sessions#create'
-  get 'sign_out',                          to: 'sessions#destroy', as: :sign_out
-  get '/forecast',                         to: 'weather#forecast', as: :forecast
+  get  'sign_out',                         to: 'sessions#destroy', as: :sign_out
+  get  '/forecast',                        to: 'weather#forecast', as: :forecast
+
   get "posts/new"
   get "posts/edit"
   get "posts/update"

@@ -1,8 +1,0 @@
-<h1>FORECAST</h1>
-<p>
-    <% @weather_hash["forecast"]["txt_forecast"]["forecastday"].each do |day| %>
-    <%= day["title"] %><br>
-    <%= day["icon"] %><br>
-    <%= day["fcctext"] %><br>
-    <% end %>
-</p>

@@ -1,0 +1,17 @@
+<% @weather_hash["forecast"]["txt_forecast"]["forecastday"].each do |day| %>
+    <ul class="weather">
+        <li><em><%= day["title"] %></em></li>
+        <% if day["icon"].include?("clear") || day["icon"] == "sunny" %>
+            <li><%= image_tag "clear.png" %></li>
+        <% elsif day["icon"] == "cloudy" || day["icon"] == "overcast" || day["icon"] == "mostlycloudy" %>
+            <li><%= image_tag "lantern.png" %></li>
+        <% elsif day["icon"].include?("storm") %>
+            <li><%= image_tag "magnet.png" %></li>
+        <% elsif day["icon"].include?("flurries") || day["icon"].include?("snow") || day["icon"] == "sleet" %>
+            <li><%= image_tag "snowpea.png" %></li>
+        <% else %>
+            <li><img src= "<%= day["icon_url"] %>"></li>
+        <% end %>
+        <li><%= day["fcttext_metric"] %></li>
+    </ul>
+<% end %>

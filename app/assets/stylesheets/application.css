@@ -16,3 +16,10 @@ strong {
     font-size: 25px;
 }
 
+ul.weather {
+    width: 12%;
+    float: left;
+    list-style-type: none;
+    display: inline-block;
+}
+
