@@ -7,9 +7,9 @@ PeaPatch::Application.routes.draw do
   get 'sign_out',                          to: 'sessions#destroy',    as: :sign_out
 
 
-  get 'tool/checkout',                     to: 'tool_shed#new',       as: :checkout
-  post 'tool/check_out',                   to: 'tool_shed#create'
-  post 'check_in',                         to: 'tool_shed#check_in',  as: :check_in
+  # get 'toolshed/checkout',                 to: 'tool_shed#new',       as: :checkout
+  # post 'toolshed/checkout',                to: 'tool_shed#create'
+  # post 'check_in',                         to: 'tool_shed#check_in',  as: :check_in
 
 
   get "posts/new"
@@ -21,6 +21,7 @@ PeaPatch::Application.routes.draw do
 
   resources :tools
   resources :users
+  resources :user_tools, path: 'tool_shed', controller: 'tool_shed', path_names: { new: 'checkout', edit: 'checkin' }
 
 
 

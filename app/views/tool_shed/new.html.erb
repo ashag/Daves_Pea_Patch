@@ -1,9 +1,15 @@
 <h2>Tool Check Out</h2>
-
+<%= p params %>
+<br>
+<%= @checkout.inspect %>
+<%= @tool.id %>
 <table>
+  <%= form_for @checkout do |f| %>
   <tr>
-    <td><%= @tool.name %></td>
-    <td><%=  %></td>
-  </tr>
-
+  <td><%= @tool.name %></td>
+      <%= f.hidden_field :tool_id %>
+  <td><%= f.select :qty,(1..2) %> </td>
+  <td><%= f.submit 'Check Out' %></td>
+   </tr>
+<% end %>
 </table>
