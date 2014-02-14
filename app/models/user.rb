@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   validates_format_of   :email, :with => /\w+@\w+\.\w+/i, :allow_blank => true
   has_many              :user_tools
   has_many              :tools, through: :user_tools
+  has_many              :tools, through: :user_tools
+  has_many              :posts, through: :user_posts
+
 
   def self.find_or_create_from_omniauth(auth_hash)
     user = User.find_by(uid: auth_hash["uid"]) || User.create_from_omniauth(auth_hash)
