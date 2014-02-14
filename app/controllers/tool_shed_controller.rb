@@ -12,9 +12,8 @@ class ToolShedController < ApplicationController
     if @tool.in_stock?(qty)
       UserTool.transaction do
         @checkout = current_user.user_tools.create(tool_shed_params)
-        # above code is same as below
-        # @checkout.user = current_user
-        # @checkout.save
+        # changed default status to out, below code unnecessary 
+        # @checkout.update(status: 'out')
 
         @tool.qty -= qty
         @tool.save
@@ -26,13 +25,15 @@ class ToolShedController < ApplicationController
     end
   end  
 
-  def update #create button in user tools page
-    tool = Tool.find(params[:id]) 
-    find_tool = UserTool.where(user_id: current_user.id, tool_id: @tool.id)
-    find_tool.update(status: 'in')
-    find_tool.save
+  def update
+    UserTool.transaction do 
+      return_tool = UserTool.find(params[:id])
+      return_tool.update(status: 'in')
 
-    tool.quantity += find_tool.qty
+      return_tool.tool.qty += return_tool.qty
+    end
+
+    redirect_to user_path
   end
 
   private

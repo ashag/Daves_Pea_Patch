@@ -1,0 +1,25 @@
+<h2>User Profile</h2>
+
+<h4>Welcome, <%= current_user.username %></h4>
+
+<% if @tools.blank? %>
+  You have not checked out any tools
+<% else %>
+  <h3>Checked out tools: </h3>
+  <table>
+  <thead>
+  <td>Tool</td>
+  <td>Qty</td>
+  <td>Return</td>
+  </thead>
+  <% @tools.each do |borrowed| %>
+    <tr>
+    <td><%= borrowed.tool.name %></td>
+    <td><%= borrowed.qty %></td>
+    <td><%= button_to "Check In", user_tool_path(borrowed.id), method: :put %>
+    </td>
+    </tr>
+  <% end %>  
+<% end %>
+<br>
+<%= link_to "Tools In Stock", tools_path %>
