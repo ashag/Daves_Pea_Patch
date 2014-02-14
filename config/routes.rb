@@ -8,11 +8,13 @@ PeaPatch::Application.routes.draw do
   get  'sign_out',                         to: 'sessions#destroy', as: :sign_out
   get  '/forecast',                        to: 'weather#forecast', as: :forecast
 
-  get "posts/new"
-  get "posts/edit"
-  get "posts/update"
-  get "posts/show"
-  get "posts/destroy"
+  resources :posts
+  #get "posts/new"
+  #get "posts/edit"
+  #get "posts/update"
+  #get "posts/show"
+  #get "posts/destroy"
+
   root 'welcome#index'
 
   resources :tools
