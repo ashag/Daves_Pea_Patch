@@ -7,12 +7,6 @@ describe User do
     expect(user).to be_valid
   end
 
-  it 'requires an email' do 
-    user = build(:user)
-    user.email = nil
-    expect(user).to be_invalid
-  end
-
   it 'requires a uid' do
     user = build(:user)
     user.uid = nil

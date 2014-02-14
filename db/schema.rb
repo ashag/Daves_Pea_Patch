@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210233841) do
+ActiveRecord::Schema.define(version: 20140214065900) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140210233841) do
     t.integer  "qty"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   create_table "user_posts", force: true do |t|
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140210233841) do
     t.integer  "qty"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status",     default: "out"
   end
 
   create_table "users", force: true do |t|
@@ -57,7 +59,7 @@ ActiveRecord::Schema.define(version: 20140210233841) do
     t.string   "avatar_url"
     t.string   "secret"
     t.string   "token"
-    t.boolean  "admin"
+    t.boolean  "admin",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
