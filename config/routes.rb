@@ -9,11 +9,13 @@ PeaPatch::Application.routes.draw do
   get  '/forecast',                        to: 'weather#forecast', as: :forecast
   get 'calendar',                          to: 'events#index'
 
-  get "posts/new"
-  get "posts/edit"
-  get "posts/update"
-  get "posts/show"
-  get "posts/destroy"
+  resources :posts
+  #get "posts/new"
+  #get "posts/edit"
+  #get "posts/update"
+  #get "posts/show"
+  #get "posts/destroy"
+
   root 'welcome#index'
 
   resources :events
