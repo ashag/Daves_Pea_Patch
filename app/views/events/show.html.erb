@@ -1,10 +1,15 @@
 <table>
+
 <tr><h2>Event: </h2></tr>
 <tr><h4><%= @event.title %></h4></tr>
 <tr><h2>Date: </h2></tr>
-<tr><h4><% @event.date %></h4></tr>
+<tr><h4><%= @event.date.strftime("%m-%d-%Y") %></h4></tr>
 <tr><h2>Location: </h2></tr>
 <tr><h4><%= @event.location %></h4></tr>
 <tr><h2>Description: </h2></tr>
 <tr><h4><%= @event.description %></h4></tr>
+
+<% if current_user %>
+  <%= link_to "Edit Event", edit_event_path %>
+<% end %> 
 

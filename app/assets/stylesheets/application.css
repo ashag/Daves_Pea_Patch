@@ -25,3 +25,14 @@ ul.weather {
 
 .calendar td { height: 100px; width: 14.28%; }
 
+.description {
+  width: 300px;
+  height: 100px;
+}
+
+.new-event {
+  margin-left: 300px;
+  width: 800px;
+  height: 800px;
+}
+
