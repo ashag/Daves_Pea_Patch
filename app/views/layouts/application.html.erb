@@ -2,14 +2,18 @@
 <html>
 <head>
   <title>PeaPatch</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap-tab.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <div class="top-bar"><%= image_tag "peashooter.png" %> <strong>Patch of Good Hope</strong></div>
+
+<div class="navbar-form navbar-right">
+    <%= button_to "Sign in", sign_in_path, class: "btn btn-success" %></button>
+</div>
 
 
 <!-- Nav tabs -->

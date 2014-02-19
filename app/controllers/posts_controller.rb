@@ -16,10 +16,18 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def destroy
     @article.destroy
+  end
+
+  def subscribe
+    user = User.find(params[:user_id])
+    user.update(news: true)
+
+    redirect_to posts_show_path
   end
 
   private

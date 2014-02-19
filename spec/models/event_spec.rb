@@ -1,5 +1,14 @@
 require 'spec_helper'
 
 describe Event do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  it 'is valid' do 
+    event = create(:event)
+    expect(event).to be_valid
+  end
+
+  it 'converts date' do 
+    event = create(:event_date)
+    expect(event.time).to eq("05-04-2014") 
+  end
 end

@@ -1,6 +1,4 @@
 <div class="new-event">  
-  <h2>Add Event</h2>
-
   <%= form_for @event do |f| %>
     <div class="field">
       <%= f.label :title %><br>
@@ -9,7 +7,7 @@
     <br>
     <div class="field">
       <%= f.label :date %><br>
-      <%= f.select_date(:date, :order => [:month, :day, :year], :placeholder => 'mm/dd/yyyy')%>
+      <%= f.date_field :date %>
     </div>
     <br>
     <div class="field">

@@ -2,10 +2,22 @@ class UsersController < ApplicationController
 
   def show
     @tools = current_user.user_tools.where(status: "out")
+
+    @user = User.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(email: params[:user][:email])
+
+    redirect_to user_path(@user)
   end
 
   def destroy
-    @user = User.find(:id)
+    @user = User.find(params[:id])
     @user.destroy
   end
 
