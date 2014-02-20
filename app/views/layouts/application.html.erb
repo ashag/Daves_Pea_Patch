@@ -31,15 +31,14 @@
     </div>
     <div class="tab-pane" id="calendar">
         <h1>Calendar</h1>
-        <p>event event event event</p>
+        <%= render partial: 'shared/calendar' %>
     </div>
     <div class="tab-pane" id="news">
         <h1>News</h1>
         <%= render partial: 'shared/posts' %>
     </div>
     <div class="tab-pane" id="tools">
-        <h1>Tools</h1>
-        <p>hoe hoe hoe hoe hoe hoe</p>
+        <%= render partial: 'shared/tools_index' %>
     </div>
 </div>
 <%= yield %>

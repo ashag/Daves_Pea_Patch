@@ -1,0 +1,13 @@
+<h2>Add Tool</h2>
+
+<%= form_for @tool do |f| %>
+    <div class="form">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div class="form">
+        <%= f.label :qty %>
+        <%= f.text_field :qty %>
+    </div>
+<% end %>

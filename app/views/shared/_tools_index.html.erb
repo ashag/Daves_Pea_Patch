@@ -1,0 +1,30 @@
+<h2>Tool Shed</h2>
+<br>
+
+Rules:
+<ul>
+    <li>1. You can check out a tool for 2 days</li>
+    <li>2. You can check out a minimum of 2 items, per tool</li>
+    <li>3. Check in tools when you return them. We are using an honor system.</li>
+    <li>4. Please be considerate of your neighbors</li>
+</ul>
+
+<br>
+<table>
+    <% if @tools %>
+      <% @tools.each do |tool| %>
+        <tr>
+            <td><%= tool.name %></td>
+            <td><%= tool.qty  %></td>
+            <td></td>
+            <% if current_user && tool.qty != 0 %>
+                <td><%= link_to 'Check Out', new_user_tool_path(:tool_id => tool.id) %></td>
+            <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+</table>
+
+<% if current_user %>
+<p>Have a tool to donate? <a href='/tools/new'>Add a Tool</a></p>
+<% end %>
