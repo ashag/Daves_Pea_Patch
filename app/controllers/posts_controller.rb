@@ -9,10 +9,16 @@ class PostsController < ApplicationController
   end
 
   def edit
-
+    @article = Post.all
   end
 
   def update
+    @article = Post.all
+    if @article.update(post_params)
+      redirect_to @article, notice: 'News post was successfully updated.'
+    else
+      render action: 'edit'
+    end
   end
 
   def show
