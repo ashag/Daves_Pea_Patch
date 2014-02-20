@@ -19,6 +19,7 @@ gem 'omniauth'
 gem 'wunderground'
 gem 'pony'
 gem 'resque'
+gem 'disqus'
 
 group :doc do
   gem 'sdoc', require: false
