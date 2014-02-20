@@ -19,7 +19,9 @@ gem 'omniauth'
 gem 'wunderground'
 gem 'pony'
 gem 'resque'
+gem "simple_calendar", "~> 0.1.9"
 gem 'disqus'
+
 
 group :doc do
   gem 'sdoc', require: false

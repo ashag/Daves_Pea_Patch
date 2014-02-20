@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def new
     @article = Post.new
   end
@@ -22,14 +23,22 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def destroy
     @article.destroy
   end
 
+  def subscribe
+    user = User.find(params[:user_id])
+    user.update(news: true)
+
+    redirect_to posts_show_path
+  end
+
   private
   def post_params
-    params.permit(:title, :body)
+    params.require(:post).permit(:title, :body)
   end
 end

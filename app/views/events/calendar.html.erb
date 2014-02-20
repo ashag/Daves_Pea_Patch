@@ -1,0 +1,8 @@
+<% if current_user %>
+  <%= link_to "Add Event", new_event_path %>
+<% end %>
+<br>
+<%= calendar @events do |event| %>
+  <div><%= link_to event.title, event %></div>
+<% end %>
+

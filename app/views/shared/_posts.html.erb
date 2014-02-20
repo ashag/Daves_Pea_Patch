@@ -9,7 +9,7 @@
     </div>
 <% end %>
 <% articles = Post.all %>
-<% articles. each do |post| %>
+<% articles.each do |post| %>
   <%= post.title %><br>
     <% if current_user && current_user.admin %>
       <%= link_to 'Edit', edit_post_path(post) %>
@@ -43,4 +43,3 @@
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 </script>
-

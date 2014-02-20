@@ -15,5 +15,6 @@ class ApplicationController < ActionController::Base
   def admin?
     @current_user.admin == true
   end
-  helper_method :admin 
+  helper_method :admin
+ 
 end
