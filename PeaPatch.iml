@@ -41,6 +41,7 @@
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.7.0, ruby-2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug_inspector (v0.0.2, ruby-2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.2.5, ruby-2.0.0-p247) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="disqus (v1.0.4, ruby-2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="docile (v1.1.3, ruby-2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, ruby-2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.0.2, ruby-2.0.0-p247) [gem]" level="application" />
