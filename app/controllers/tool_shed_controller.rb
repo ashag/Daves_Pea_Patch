@@ -12,7 +12,6 @@ class ToolShedController < ApplicationController
     if @tool.in_stock?(qty)
       UserTool.transaction do
         @checkout = current_user.user_tools.create(tool_shed_params)
-        @checkout.
 
         @tool.qty -= qty
         @tool.save
