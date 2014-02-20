@@ -10,11 +10,12 @@ class ToolsController < ApplicationController
     #   redirect_to :somewhere
     # end
 
-    if current_user.email != nil
+    if current_user && current_user.email != nil
       @tool = Tool.new
       render :new
     else
-      redirect_to user_path(current_user.id)
+      redirect_to root_path
+      #TODO: fix this flash notice because it doesn't work.
       flash[:notice] = "Please add your email to gain access to tools"
     end
   end
