@@ -7,7 +7,10 @@ PeaPatch::Application.routes.draw do
 
   get  'sign_out',                         to: 'sessions#destroy', as: :sign_out
   get  '/forecast',                        to: 'weather#forecast', as: :forecast
+  get 'calendar',                          to: 'events#index'
 
+  # get "posts/#{post.title}",               to: 'posts#show',       as: :show_post
+  post 'posts',                            to: 'posts#subscribe',  as: :subscribe
   resources :posts
   #get "posts/new"
   #get "posts/edit"
@@ -17,6 +20,7 @@ PeaPatch::Application.routes.draw do
 
   root 'welcome#index'
 
+  resources :events
   resources :tools
   resources :users
   resources :user_tools, path: 'tool_shed', controller: 'tool_shed', path_names: { new: 'checkout', edit: 'checkin' }

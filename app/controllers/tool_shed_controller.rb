@@ -7,7 +7,7 @@ class ToolShedController < ApplicationController
 
   def create
     @tool = Tool.find(tool_shed_params[:tool_id])
-    @qty = tool_shed_params[:qty].to_i
+    qty = tool_shed_params[:qty].to_i
 
     if @tool.in_stock?(qty)
       UserTool.transaction do

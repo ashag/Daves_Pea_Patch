@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>PeaPatch</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <script type="text/javascript" src="assets/twitterbootstrap/js/bootstrap-tab.js"></script>
   <%= csrf_meta_tags %>
 </head>
@@ -11,7 +11,6 @@
 
 <div class="top-bar"><%= image_tag "peashooter.png" %><strong>Patch of Good Hope</strong></div>
 
-<%= yield %>
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
     <li class="active"><a href="#forecast" data-toggle="tab">Forecast</a></li>
@@ -20,7 +19,7 @@
     <li><a href="#tools" data-toggle="tab">Tools</a></li>
 </ul>
 
-<!-- Tab Content -->
+    <!-- Tab Content -->
 <div class="tab-content">
     <div class="tab-pane active" id="forecast">
         <h3><%= image_tag "south-africa-flag.png" %>Forecast for Cape Town</h3>
@@ -38,5 +37,6 @@
         <%= render partial: 'shared/tools_index' %>
     </div>
 </div>
+<%= yield %>
 </body>
 </html>
