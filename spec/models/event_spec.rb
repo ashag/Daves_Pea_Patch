@@ -16,6 +16,4 @@ describe Event do
     event = create(:event_date)
     expect(event.time).to eq("05-04-2014") 
   end
-
-  
 end

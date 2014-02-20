@@ -18,6 +18,10 @@ describe EventsController do
         post :create, event: event
         expect(response).to redirect_to event_show_path
       end
+
+      it 'increases event count by 1' do 
+        expect { post :create, event: event }.to change(Event, :count).by(1)
+      end
     end
 
     context 'with invalid attributes' do 
@@ -25,11 +29,15 @@ describe EventsController do
 
       it 'sets a flash message' do 
         post :create, event: event
-        expect(flash[:notice]).to include ''
-
+        expect(flash[:notice]).to include "can't be blank"
+      end
     end
   end
 
-
-
+  describe 'DELETE "destroy" ' do
+    let(:event) { create(:event) } 
+    it 'decreases event count by 1' do 
+      expect { delete :destroy, event: event}.to change(Event, :count).by(-1)
+    end
+  end
 end
