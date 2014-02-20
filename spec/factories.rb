@@ -56,6 +56,14 @@ FactoryGirl.define do
     description "garden garden garden"
   end
 
+  factory :event2 do 
+    title nil
+    date "04-05-14"
+    time "04:00PM"
+    location "somewhere"
+    description "garden garden garden"
+  end
+
   factory :event_date do 
     title "Gardening"
     date "2014-05-04 00:00:00"

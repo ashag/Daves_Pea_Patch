@@ -13,9 +13,10 @@ class EventsController < ApplicationController
     @event = Event.create(event_params)
 
     if @event.save
-      redirect_to event_path(@event)
+      redirect_to event_path
     else
       render :new
+      flash[:notice] = "Please fill in your %{attribute}"
     end
   end
 

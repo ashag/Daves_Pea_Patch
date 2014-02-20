@@ -9,7 +9,7 @@
     </div>
 <% end %>
 <% articles = Post.all %>
-<% articles. each do |post| %>
+<% articles.each do |post| %>
   <%= post.title %><br>
     <% if current_user && current_user.admin %>
       <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
