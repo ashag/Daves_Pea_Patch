@@ -3,9 +3,9 @@ class UserTool < ActiveRecord::Base
   belongs_to    :tool
 
   def return_notification
-    email = current_user.email 
+    email = self.user.email 
 
-    Pony.mail(to: email, from: "adaBugFree13@gmail.com", subject: "Return the #{self.name}", body: self.body)
+    Pony.mail(to: email, from: "adaBugFree13@gmail.com", subject: "Return the #{self.tool.name}", body: self.body)
   end
 
   def body 
@@ -28,7 +28,7 @@ class UserTool < ActiveRecord::Base
   end
 
   def return_email
-    if self.status == "out" && return_date - 1.day
+    if return_date - 1.day
       return_notification
     end
   end

@@ -3,8 +3,8 @@ class Post < ActiveRecord::Base
 
   def news_email
     users = User.where(news: true)
-    email_users = users.map { |user| user.emails }
+    email_users = users.map { |user| user.email }
 
-    Pony.mail(to: email_users, from: "adaBugFree13@gmail.com", subject: "New Blog Post - #{self.title}", body: )
+    Pony.mail(to: email_users, from: "adaBugFree13@gmail.com", subject: "New Blog Post - #{self.title}", body: "Check out our new blog post")
   end
 end

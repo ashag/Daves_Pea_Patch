@@ -21,6 +21,7 @@ gem 'pony'
 gem 'resque'
 gem "simple_calendar", "~> 0.1.9"
 gem 'disqus'
+gem 'whenever'
 
 
 group :doc do
