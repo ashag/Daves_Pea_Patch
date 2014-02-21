@@ -6,7 +6,17 @@ class PostsController < ApplicationController
 
   def create
     @article = Post.create(post_params)
-    render :'posts/show'
+
+    respond_to do |format|
+      if @article.save
+        Resque.enqueue(EmailJob, @article.id)
+        format.html { redirect_to @article, notice: 'New post was successfully created'}
+        format.json { render :'posts/show', status: :created }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
@@ -30,15 +40,15 @@ class PostsController < ApplicationController
     @article.destroy
   end
 
-  def subscribe
-    user = User.find(params[:user_id])
-    user.update(news: true)
+  # def subscribe
+  #   user = User.find(params[:user_id])
+  #   user.update(news: true)
 
-    redirect_to posts_show_path
-  end
+  #   redirect_to posts_show_path
+  # end
 
   private
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.permit(:title, :body)
   end
 end

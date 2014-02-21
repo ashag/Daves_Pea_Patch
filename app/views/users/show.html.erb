@@ -1,5 +1,6 @@
 <h2>User Profile</h2>
 
+<%= image_tag current_user.avatar_url %>
 <h4>Welcome, <%= current_user.username %></h4>
 <br>
 <% if @user.email.blank? %>
